@@ -26,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
         "User"
     ]
 
-    def create(self, args):
+    def do_create(self, args):
         '''Create a new instance of BaseModel, save it and prints the id
            Usage: create <class name>
         '''
@@ -40,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
             models.storage.save()
             print(new_creation.id)
 
-    def show(self, args):
+    def do_show(self, args):
         '''Prints the string representation of a specific instance
            Usage: show <class name> <id>
         '''
@@ -59,7 +59,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
-    def destroy(self, args):
+    def do_destroy(self, args):
         '''Delete an instance
            Usage: destroy <class name> <id>
         '''
@@ -80,10 +80,8 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print('** no instance found **')
 
-    def all(self, args):
-        '''Print a string representation of all instances
-           Usage: all <class name>
-        '''
+    def do_all(self, args):
+        '''Print a string representation of all instances '''
         args = args.split()
         objects = models.storage.all()
         new_list = []
@@ -100,7 +98,7 @@ class HBNBCommand(cmd.Cmd):
                     new_list.append(obj.__str__())
             print(new_list)
 
-    def update(self, args):
+    def do_update(self, args):
         '''update an instance
            Usage update <class name> <id> <attribute name> "<attribute value>"
         '''
@@ -156,11 +154,11 @@ class HBNBCommand(cmd.Cmd):
                     print("** class doesn't exist **")
                     return None
 
-    def quit(self, args):
+    def do_quit(self, args):
         '''<Quit> Command To Exit The Program'''
         return True
 
-    def EOF(self, args):
+    def do_EOF(self, args):
         '''Handles end of file'''
         return True
 
