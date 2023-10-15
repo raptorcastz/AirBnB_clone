@@ -39,6 +39,5 @@ class BaseModel:
 
     @property
     def __str__(self):
-        """Return the print/str representation of the BaseModel instance."""
-        classicname = self.__class__.__name__
-        return "[{}] ({}) {}".format(classicname, self.id, self.__dict__)
+        '''Return a string representation of the object'''
+        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
