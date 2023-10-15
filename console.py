@@ -94,8 +94,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             for obj in objects.values():
-                if obj.__class__.__name__ == args[0]:
-                    new_list.append(obj.__str__())
+                if obj.__class__.__name__ != args[0]:
+                    continue
+                new_list.append(obj.__str__())
             print(new_list)
 
     def do_update(self, args):
@@ -168,5 +169,8 @@ class HBNBCommand(cmd.Cmd):
         '''
         pass
 
-if __name__ == '__main__':
+
+if __name__ != '__main__':
+    pass
+else:
     HBNBCommand().cmdloop()

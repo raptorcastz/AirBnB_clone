@@ -6,18 +6,18 @@ from uuid import uuid4
 from datetime import datetime
 
 class BaseModel:
-    """for the BaseModel of the HBnB project."""
+    """for the BaseModel class"""
     def __init__(self, *args, **kwargs):
         """Initialize BaseModel.
         """
-        timeformat = "%Y-%m-%dT%H:%M:%S.%f"
+        tformat = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
         if len(kwargs) != 0:
             for a, c in kwargs.items():
                 if a == "created_at" or a == "updated_at":
-                    self.__dict__[a] = datetime.strptime(c, timeformat)
+                    self.__dict__[a] = datetime.strptime(c, tformat)
                 else:
                     self.__dict__[a] = c
         else:

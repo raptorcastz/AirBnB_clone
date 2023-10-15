@@ -19,5 +19,5 @@ class test_console(unittest.TestCase):
     def test_EOF(self):
         """test for the method EQF
         """
-       console = self.create()
+    console = self.create()
         self.assertTrue(console.onecmd("EOF"))
